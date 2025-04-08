@@ -142,11 +142,10 @@ body.light-mode {
 
 .home {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* stack containers vertically as intended */
   align-items: center;
-  height: 100vh;
+  gap: 2rem; /* Add space between containers */
   padding: 2rem;
-  background: none; 
 }
 
 .home-container {
@@ -433,4 +432,62 @@ li {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.overview-container {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 80px;
+}
+
+.tech-stack-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* adjusted for a horizontal layout */
+  height: 100px; /* reduced height for a ticker-like appearance */
+  margin: 2rem auto;
+  overflow: hidden; /* ensure content stays within the container */
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 80px;
+}
+
+.tech-logos {
+  display: flex;
+  gap: 2rem; /* space between logos */
+  animation: scroll 6s linear infinite;
+  will-change: transform; /* optimize performance for animation */
+  white-space: nowrap; /* prevents wrapping */
+}
+
+.tech-logos::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.tech-logos img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.tech-logos img:hover {
+  transform: scale(1.2);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
